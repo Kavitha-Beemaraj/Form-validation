@@ -1,0 +1,45 @@
+body{
+     padding: 7px 10px;
+    margin-bottom: 4px;
+    border: 1px solid black;
+    margin: 5px 400px 5px 5px;
+}
+h4{
+    line-height: 0px;
+}
+.my-form{
+    padding: 4px;
+}
+.form-group{
+    padding-bottom: 4px;
+    margin-bottom: 5px;
+}  
+.my -form label{
+     display: inline-block;
+} 
+.my-form input{
+    padding: 4px;
+    width: auto;
+    margin: 1px;
+ 
+} 
+.my-form textarea{
+    padding: 5px;
+    width:  200px;
+    height: 100px;
+} 
+.button{
+    max-width: 80px;
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    border: none;
+} 
+.button:hover{
+    background-color: white;
+    color: black;
+} 
+.error{
+    color: red;
+    visibility: hidden;
+}                

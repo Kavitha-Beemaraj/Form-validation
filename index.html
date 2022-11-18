@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head><meta charset="UTF-8">
+        <title>My Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <script>
+            function validate() {
+                const borderstyle="3px solid red";
+                const nameErrorDom=document.getElementById("nameerror");
+                const ageErrorDom=document.getElementById("ageerror");
+                const genderErrorDom=document.getElementById("gendererror");
+                const mobilenumberErrorDom=document.getElementById("mobilenumbererror");
+                const form=document.forms["myform"];
+                    var name =form["fname"];
+                    var age = form["age"];
+                    var gender =form["gender"]; 
+                    var mobilenumber =form["mobilenumber"]; 
+                /*name*/
+                if ((name.value=="")||(name.value==null) ||( name.value.length<=2)){
+                    name.style.border= borderstyle;
+                    nameErrorDom.style.visibility="visible";
+                    return false;
+                }
+                else{
+                    nameErrorDom.style.visibility="hidden";
+                    name.style.border= "none";
+                    true;
+                }
+                /*age*/
+                if ((isNaN(age.value))||( age.value < 21 )||( age.value > 35)) {
+                    age.style.border=borderstyle;
+                    ageErrorDom.style.visibility="visible";
+                    return false;
+                } 
+                else{
+                    ageErrorDom.style.visibility="hidden";
+                    age.style.border= "none";
+                    true;
+                }
+                /*gender*/
+                if((gender[0].checked==false)&&(gender[1].checked==false)&&(gender[2].checked==false)){
+                    alert("select gender")
+                    genderErrorDom.style.visibility="visible";
+                    return false;
+                }
+                else{
+                    genderErrorDom.style.visibility="hidden";
+                    true;
+                }
+                /*mobile number*/
+                if (( mobilenumber.value=="")|| (mobilenumber.value.length!=10 )||(isNaN(mobilenumber.value))){
+                    mobilenumber.style.border=borderstyle;
+                    mobilenumberErrorDom.style.visibility="visible";
+                    return false;
+                }
+                else{
+                    mobilenumberErrorDom.style.visibility="hidden";
+                    mobilenumber.style.border= "none";
+                    true;
+                }
+                alert("Validation is completed") 
+            }  
+        </script>
+    </head>
+    <body> 
+        <h3><i>Submit a Resume</i></h3>
+        <form  method="post" class="my-form" name="myform" onsubmit="return validate()">
+            <div class="form-group"><!--name-->
+                <label for="fname"> <h4>Name:</h4></label>  
+                <input type="text" id="fname" name="fname" placeholder="enter first name">
+                <input type="text" id="lname" name="lname" placeholder="enter last name">
+                <label id="nameerror" class="error"> invalid input name</label>
+            </div>
+            <div class="form-group"><!--age-->
+                <label for="age"> <h4>Age:</h4></label>  
+                <input type="number" id="age" name="age" placeholder="enter your age">
+                <label id="ageerror" class="error">invalid input age</label>
+            </div>
+            <div class="form-group"><!--gender-->
+                <label for="gender"><h4>Gender:</h4></label><br>
+                <input type="radio" id="male" name="gender"value="male">
+                <label for="gender">Male</label><br>
+                <input type="radio" id="female" name="gender"value="female">
+                <label for="gender">Female</label><br>  
+                <input type="radio" id="others" name="gender"value="others">
+                <label for="gender">Others</label> 
+                <label id="gendererror" class="error">enter input gender</label>
+            </div>
+            <div class="form-group"><!--birthday-->
+                <label for="bdate"><h4>Date of Birth:</h4></label>
+                <input type="date" id="birthday" name="bdate" min="2001-01-01" max="1980-01-01">
+            </div>
+            <div class="form-group"><!--address-->
+                <label for="address"><h4>Address:</h4></label> <br>
+                <input type="text" id="streetname" name="address" placeholder="street name"><br>
+                <input type="text" id="address line" name="address" placeholder=" address line 2"><br>
+                <input type="text" id="city" name="address" placeholder="city name"><br>
+                <input type="number" id="pin" name="address" placeholder=" pin code" size="6"><br>
+                <input list="state" name="address" placeholder="select your state">
+                <datalist id="state">
+                    <option value="Andhra Pradesh">
+                    <option value="Arunachal Pradesh">
+                    <option value="Assam">
+                    <option value="Bihar">
+                    <option value="Chhattisgarh">
+                    <option value="Goa">
+                    <option value="Gujarat">
+                    <option value="Haryana">
+                    <option value="Himachal Pradesh">
+                    <option value="Jharkhand">
+                    <option value="Karnataka">
+                    <option value="Kerala">
+                    <option value="Madhya Pradesh">
+                    <option value="Maharashtra">
+                    <option value="Manipur">
+                    <option value="Meghalaya">
+                    <option value="Mizoram">
+                    <option value="Nagaland">
+                    <option value="Odisha">
+                    <option value="Punjab">
+                    <option value="Rajasthan">
+                    <option value="Sikkim">
+                    <option value="Tamil Nadu">
+                    <option value="Telugana">
+                    <option value="Tripura">
+                    <option value="U.P">
+                    <option value="Uttarkhand">
+                    <option value="West Bengal">
+                </datalist>
+            </div>
+            <div class="form-group"><!--eduation-->
+                <label for="education"><h4>Education:</h4></label><br>
+                <ol>
+                <li><label for="education1">10th:</label><br>
+                <input type="text" id="school1" name="education1" placeholder="enter your school name">
+                <input type="text" id="subject1" name="education1" placeholder="enter your main subject">
+                <input type="number" id="year1" name="education1" placeholder="year of passing">
+                <input type="number" id="mark1" name="education1" placeholder="pass percentage"></li>
+                <li><label for="education2">121th:</label><br>
+                <input type="text" id="school2" name="education2" placeholder="enter your school name">
+                <input type="text" id="subject2" name="education2" placeholder="enter your main subject">
+                <input type="number" id="year2" name="education2" placeholder="year of passing">
+                <input type="number" id="mark2" name="education2" placeholder="pass percentage"></li>
+                <li><label for="education3">Under Graduation1:</label><br>
+                <input type="text" id="school3" name="education3" placeholder="enter your institution name">
+                <input type="text" id="subject3" name="education3" placeholder="enter your main subject">
+                <input type="number" id="year3" name="education3" placeholder="year of passing">
+                <input type="number" id="mark3" name="education3" placeholder="pass percentage"></li>
+                </ol>
+            </div>
+            <div class="form-group"><!--skill-->
+                <label for="skill"><h4>Skills:</h4></label><br>
+                <input type="checkbox" id="skill1" name="skill1" value="html">
+                <label for="skill1">HTML</label><br>
+                <input type="checkbox" id="skill2" name="skill2" value="css">
+                <label for="skill2">CSS</label><br>
+                <input type="checkbox" id="skill3" name="skill3" value="unix">
+                <label for="skill3">UNIX</label><br>
+                <input type="checkbox" id="skill4" name="skill4" value="msoffice">
+                <label for="skill4">MS OFFICE</label><br>
+                <input type="checkbox" id="skill5" name="skill5" value="sql">
+                <label for="skill5">SQL</label><br>
+                <input type="checkbox" id="skill6" name="skill6" value="1javascript">
+                <label for="skill6">JAVASCRIPT</label>
+            </div>
+            <div class="form-group"><!--email id-->
+                <label for="email"><h4>E-Mail Id:</h4></label>
+                <input type="email" id="email" name="email" placeholder="enter your email id">
+            </div>
+            <div class="form-group"><!--phone number-->
+                <label for="mobilenumber"><h4>Mobile No.:</h4></label>
+                <input type="tel" id="phone" name="mobilenumber" placeholder="9987654321">
+                <label id="mobilenumbererror" class="error">invalid input mobile number</label>
+            </div>
+            <div><!--cover letter-->
+                <label><h4>Cover Letter:</h4></label>
+                <textarea> </textarea>
+            </div>
+            <div>
+                <input type="submit" class="button" value="submit">
+            </div>
+        </form>
+    </body>
+</html>
